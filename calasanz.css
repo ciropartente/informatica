@@ -4,3 +4,20 @@ h1{
 h2{
     color:blue;
 }
+/* selector de etiqueta */ 
+
+
+
+
+
+
+
+
+/* selector de clase */
+oscuro{
+    background-color:black;
+    color:white;}
+    /* selector ID */
+    #biografía {
+        background-color: blue;
+    }
