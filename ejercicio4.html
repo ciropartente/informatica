@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Ejercicio 4</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h2>Ejercicio 4: Mostrar y Ocultar contenido</h2>
+<div id="contenido">Este es el contenido que se puede ocultar o mostrar.</div>
+<button onclick="ocultar()">Ocultar</button>
+<button onclick="mostrar()">Mostrar</button>
+
+<script>
+function ocultar() {
+document.getElementById("contenido").style.display = "none";
+}
+function mostrar() {
+document.getElementById("contenido").style.display = "block";
+}
+</script>
+</body>
+</html>
