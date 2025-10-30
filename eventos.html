@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculador de Días para Evento</title>
+</head>
+<body>
+    <h2>Calculador de Días para un Evento</h2>
+    <form id="eventForm">
+        <label for="evento">Nombre del evento:</label>
+        <input type="text" id="evento" required><br><br>
+
+        <label for="fecha">Fecha del evento:</label>
+        <input type="date" id="fecha" required><br><br>
+
+        <button type="submit">Calcular</button>
+    </form>
+
+    <p id="resultado"></p>
+
+    <script>
+        const form = document.getElementById('eventForm');
+        const resultado = document.getElementById('resultado');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita que la página se recargue
+
+            const nombreEvento = document.getElementById('evento').value;
+            const fechaEvento = new Date(document.getElementById('fecha').value);
+            const hoy = new Date();
+
+            // Normalizamos horas para evitar problemas con la diferencia de tiempo
+            fechaEvento.setHours(0,0,0,0);
+            hoy.setHours(0,0,0,0);
+
+            const diffTime = fechaEvento - hoy;
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+            if (diffDays > 0) {
+                resultado.textContent = `Faltan ${diffDays} días para ${nombreEvento}.`;
+            } else if (diffDays === 0) {
+                resultado.textContent = `¡Hoy es el día de ${nombreEvento}!`;
+            } else {
+                resultado.textContent = `El evento '${nombreEvento}' ya ocurrió.`;
+            }
+        });
+    </script>
+</body>
+</html>
